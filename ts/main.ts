@@ -1,5 +1,6 @@
 window.onload = function()
 {
+    //Takes the button from the page and allows me to run the function.
     let regButton = <HTMLElement>document.querySelector("form > button");
     regButton.onclick = regData;
 
