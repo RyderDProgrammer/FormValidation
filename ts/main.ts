@@ -6,8 +6,30 @@ window.onload = function()
 
     function regData():void
     {
+        resetErrorMessages();
         isTextPresent("firstName","First name is required!");
         isTextPresent("lastName","Last name is required!");
+    }
+}
+
+/**
+ * Cleans out the spans and resets them back to the default
+ * text which is *
+ */
+function resetErrorMessages():void
+{
+    let allSpans = document.querySelectorAll("form span");
+    for(let i = 0; i < allSpans.length; i++)
+    {
+        let currSpan = <HTMLElement>allSpans[i];
+        if(currSpan.hasAttribute("data-required"))
+        {
+            currSpan.innerText = "*";
+        }
+        else
+        {
+            currSpan.innerText = "";
+        }
     }
 }
 
