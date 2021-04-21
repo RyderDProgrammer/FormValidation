@@ -1,4 +1,33 @@
-form span
+form > span
 {
     color: red;
+}
+input[type=text]
+{
+    margin-bottom: .5em;
+}
+
+form label
+{
+    display: inline-block;
+    width: 50%;
+    text-align: right;
+    margin-right: 2em;
+}
+
+form button
+{
+    margin-left: 50%;
+}
+
+@media only screen and (max-width: 650px)
+{
+    form label
+    {
+        text-align: left;
+    }
+    form button
+    {
+        margin-left: 0%;
+    }
 }
