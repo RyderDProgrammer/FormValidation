@@ -3,13 +3,31 @@ window.onload = function()
     //Takes the button from the page and allows me to run the function.
     let regButton = <HTMLElement>document.querySelector("form > button");
     regButton.onclick = regData;
+}
 
-    function regData():void
+function regData():void
+{
+    resetErrorMessages();
+    isTextPresent("firstName","First name is required!");
+    isTextPresent("lastName","Last name is required!");
+
+    //validating date
+    let dobBox = <HTMLInputElement>document.getElementById("birthDate");
+    let dob = dobBox.value;
+    if(!isValidDate(dob))
     {
-        resetErrorMessages();
-        isTextPresent("firstName","First name is required!");
-        isTextPresent("lastName","Last name is required!");
+        dobBox.nextElementSibling.innerHTML = "Needs to be dd/mm/yyyy format";
     }
+
+}
+
+function isValidDate(input:string):boolean
+{
+    //dd/mm//yyyy
+    //\d{1,2}\/\d{1,2}\/\d{4}
+    //Needs the / at the beginning and end.
+    let pattern = /^\d{1,2}\/\d{1,2}\/\d{4}$/g
+    return pattern.test(input);
 }
 
 /**

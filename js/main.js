@@ -1,12 +1,21 @@
 window.onload = function () {
     var regButton = document.querySelector("form > button");
     regButton.onclick = regData;
-    function regData() {
-        resetErrorMessages();
-        isTextPresent("firstName", "First name is required!");
-        isTextPresent("lastName", "Last name is required!");
-    }
 };
+function regData() {
+    resetErrorMessages();
+    isTextPresent("firstName", "First name is required!");
+    isTextPresent("lastName", "Last name is required!");
+    var dobBox = document.getElementById("birthDate");
+    var dob = dobBox.value;
+    if (!isValidDate(dob)) {
+        dobBox.nextElementSibling.innerHTML = "Needs to be dd/mm/yyyy format";
+    }
+}
+function isValidDate(input) {
+    var pattern = /^\d{1,2}\/\d{1,2}\/\d{4}$/g;
+    return pattern.test(input);
+}
 function resetErrorMessages() {
     var allSpans = document.querySelectorAll("form span");
     for (var i = 0; i < allSpans.length; i++) {
