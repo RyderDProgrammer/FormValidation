@@ -6,6 +6,9 @@ function regData() {
     resetErrorMessages();
     isTextPresent("firstName", "First name is required!");
     isTextPresent("lastName", "Last name is required!");
+    dateValid();
+}
+function dateValid() {
     var dobBox = document.getElementById("birthDate");
     var dob = dobBox.value;
     if (!isValidDate(dob)) {

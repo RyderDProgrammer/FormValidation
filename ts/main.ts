@@ -12,13 +12,16 @@ function regData():void
     isTextPresent("lastName","Last name is required!");
 
     //validating date
+    dateValid();
+
+}
+
+function dateValid() {
     let dobBox = <HTMLInputElement>document.getElementById("birthDate");
     let dob = dobBox.value;
-    if(!isValidDate(dob))
-    {
+    if (!isValidDate(dob)) {
         dobBox.nextElementSibling.innerHTML = "Needs to be dd/mm/yyyy format";
     }
-
 }
 
 function isValidDate(input:string):boolean
