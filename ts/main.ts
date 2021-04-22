@@ -7,13 +7,21 @@ window.onload = function()
 
 function regData():void
 {
+    let msgHeading = document.createElement("h2");
+    msgHeading.innerText = "Processing form";
+    //Added a class so that we are able to altar it with DOM
+    //Manip vs just targetting the H2 in the CSS.
+    msgHeading.setAttribute("class","message");
+
+    let h1 = document.querySelector("h1");
+    h1.insertAdjacentElement('afterend',msgHeading);
+
     resetErrorMessages();
     isTextPresent("firstName","First name is required!");
     isTextPresent("lastName","Last name is required!");
 
     //validating date
     dateValid();
-
 }
 
 function dateValid() {

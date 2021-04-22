@@ -24,12 +24,12 @@ body
     margin-right: 5%;
 }
 
-h1
+h1,.message
 {
     text-align: center;
 }
 
-h1,form label, form button
+h1,form label, form button,.message
 {
     font-family: 'Courier New', Courier, monospace;
 }

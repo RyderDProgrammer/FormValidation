@@ -3,6 +3,11 @@ window.onload = function () {
     regButton.onclick = regData;
 };
 function regData() {
+    var msgHeading = document.createElement("h2");
+    msgHeading.innerText = "Processing form";
+    msgHeading.setAttribute("class", "message");
+    var h1 = document.querySelector("h1");
+    h1.insertAdjacentElement('afterend', msgHeading);
     resetErrorMessages();
     isTextPresent("firstName", "First name is required!");
     isTextPresent("lastName", "Last name is required!");
