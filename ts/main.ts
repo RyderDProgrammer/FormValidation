@@ -5,6 +5,26 @@ window.onload = function()
     regButton.onclick = regData;
 }
 
+/**
+ * Changes the heading to a random color when it is clicked on.
+ */
+function changeHeading()
+{
+    let heading = <HTMLElement>this;
+    //making random color generator.
+    //By establishing the RGB values at random to make
+    //fun different colors.
+    let red = Math.floor(Math.random() * 255 + 1)
+    let green = Math.floor(Math.random() * 255 + 1)
+    let blue = Math.floor(Math.random() * 255 + 1)
+    let color = "rgb(" + red + "," + green + "," + blue + ")";
+
+    //Making sure it works by outputting it to the console.
+    console.log(color)
+    heading.style.color = color;
+    console.log(heading.style.color);
+}
+
 function regData():void
 {
     let msgHeading = document.createElement("h2");
@@ -12,9 +32,15 @@ function regData():void
     //Added a class so that we are able to altar it with DOM
     //Manip vs just targetting the H2 in the CSS.
     msgHeading.setAttribute("class","message");
+    msgHeading.onclick = changeHeading;
 
     let h1 = document.querySelector("h1");
     h1.insertAdjacentElement('afterend',msgHeading);
+
+    //Takes out the msgHeading over the span of 3 seconds
+    setTimeout(function(){
+        msgHeading.remove();
+    },3000)
 
     resetErrorMessages();
     isTextPresent("firstName","First name is required!");
