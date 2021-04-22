@@ -2,6 +2,38 @@ form > span
 {
     color: red;
 }
+
+button
+{
+    padding: 1em;
+    border-radius: .3em;
+    background-color: pink;
+    color: rgb(83, 71, 55);
+    cursor: pointer;
+}
+
+button:hover
+{
+    background-color: rgb(172, 24, 46);
+    color: black;
+}
+
+body
+{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+h1
+{
+    text-align: center;
+}
+
+h1,form label, form button
+{
+    font-family: 'Courier New', Courier, monospace;
+}
+
 input[type=text]
 {
     margin-bottom: .5em;
